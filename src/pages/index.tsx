@@ -4,6 +4,9 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { StoryblokComponent, getStoryblokApi, useStoryblokState } from '@storyblok/react'
 import Layout from '@/components/Layout'
+import Teams from '@/components/feature-components/Team'
+import LogoClouds from '@/components/feature-components/LogoClouds'
+import ContactSection from '@/components/feature-components/ContactSection'
 
 const inter = Inter({ subsets: ['latin'] })
 

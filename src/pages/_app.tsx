@@ -1,20 +1,29 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { storyblokInit, apiPlugin } from "@storyblok/react";
-import Feature from '@/components/Feature';
-import Grid from '@/components/Grid';
-import Teaser from '@/components/Teaser';
-import Page from '@/components/page';
+import dynamic from 'next/dynamic';
+
+const Page = dynamic(() => import('@/components/costom-components/Page'));
+const SectionList = dynamic(() => import('@/components/costom-components/SectionList'));
+const Image = dynamic(() => import('@/components/costom-components/Image'));
+const Text = dynamic(() => import('@/components/costom-components/Text'));
+const RichText = dynamic(() => import('@/components/costom-components/RichText'));
+const TextArea = dynamic(() => import('@/components/costom-components/TextArea'));
+const Number = dynamic(() => import('@/components/costom-components/number'));
+
 
 const components = {
-  feature: Feature,
-  grid: Grid,
-  teaser: Teaser,
+  sectionList: SectionList,
   page: Page,
+  imageComponent: Image,
+  richText: RichText,
+  text: Text,
+  textArea: TextArea,
+  number: Number
 };
 
 storyblokInit({
-  accessToken: "U6Vau0pPyEWEE07a4QZKaAtt",
+  accessToken: "MH3QAY8cP3yZruZ2vlrU5gtt",
   use: [apiPlugin],
   components
 });

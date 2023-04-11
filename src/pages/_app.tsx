@@ -10,7 +10,7 @@ const Text = dynamic(() => import('@/components/costom-components/Text'));
 const RichText = dynamic(() => import('@/components/costom-components/RichText'));
 const TextArea = dynamic(() => import('@/components/costom-components/TextArea'));
 const Number = dynamic(() => import('@/components/costom-components/number'));
-
+const StyledComponent = dynamic(() => import('@/components/feature-components/styledComponent'))
 
 const components = {
   sectionList: SectionList,
@@ -19,7 +19,8 @@ const components = {
   richText: RichText,
   text: Text,
   textArea: TextArea,
-  number: Number
+  number: Number,
+  styledComponent: StyledComponent
 };
 
 storyblokInit({

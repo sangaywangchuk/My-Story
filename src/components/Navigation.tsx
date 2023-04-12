@@ -106,7 +106,10 @@ export default function Example() {
             Home
           </Link>
           <Link href="/about" className="text-sm font-semibold leading-6 text-gray-900">
-            About us
+            About Us
+          </Link>
+          <Link href="/contact" className="text-sm font-semibold leading-6 text-gray-900">
+            Contact Us
           </Link>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">

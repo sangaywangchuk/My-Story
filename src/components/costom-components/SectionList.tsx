@@ -1,5 +1,4 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
-import StyledComponent from "../feature-components/styledComponent";
  
 const SectionList = ({ blok }: any) => {
   return (

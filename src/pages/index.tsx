@@ -3,6 +3,11 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { StoryblokComponent, getStoryblokApi, useStoryblokState } from '@storyblok/react'
 import Layout from '@/components/Layout'
+import PromoSection from '@/components/feature-components/promoSection'
+import ProductSections from '@/components/feature-components/productSection'
+import FeatureSection from '@/components/feature-components/featureSection'
+import ContactSection from '@/components/feature-components/contactSection'
+import PricingSection from '@/components/feature-components/pricingSection'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,6 +26,11 @@ debugger;
       <main className={styles.main}>
       <Layout>
       <StoryblokComponent blok={story?.content} />
+      <PromoSection></PromoSection>
+      {/* <ProductSections></ProductSections>
+      <FeatureSection></FeatureSection>
+      <ContactSection></ContactSection>
+      <PricingSection></PricingSection> */}
       </Layout>
       </main>
     </>

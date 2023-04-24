@@ -2,6 +2,8 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { storyblokInit, apiPlugin } from "@storyblok/react";
 import dynamic from 'next/dynamic';
+import { Provider } from 'react-redux';
+import { store } from '../../state/store';
 
 const Page = dynamic(() => import('@/components/costom-components/Page'));
 const SectionList = dynamic(() => import('@/components/costom-components/SectionList'));
@@ -33,5 +35,9 @@ storyblokInit({
 });
   
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
+  )
 }

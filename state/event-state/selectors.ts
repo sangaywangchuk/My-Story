@@ -57,6 +57,30 @@ const selectLoadingStatus = createSelector(
   (state) => state?.loadingStatus
 );
 
+export const selectGlobalSearchEvent = (searchTerm: string | undefined) => createSelector(
+  selectAllEvents,
+  (todoList: EventModel[]) => {
+    return [...todoList].filter((todo: EventModel) =>
+      searchTerm
+        ? JSON.stringify(Object.values(todo))
+            .toLowerCase()
+            .indexOf(searchTerm.toLowerCase()) !== -1
+        : [...todoList],
+    );
+  },
+);
+
+export const getFilteredEvents = (dateFilter: any) =>
+  createSelector(selectAllEvents, (state) => {
+    const { year, month } = dateFilter;
+    return state.filter((event) => {
+      const eventDate = new Date(event.date);
+      return (
+        eventDate.getFullYear() === year && eventDate.getMonth() === month - 1
+      );
+    });
+  });
+
 /**
  * Selects the Event IDs from the Event feature state.
  * @function

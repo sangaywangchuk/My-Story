@@ -1,30 +1,35 @@
-import { useRouter } from "next/router";
-import { getFilteredEvents } from "../../../services/events-dummy-data";
-import EventList from "../../../components/events/EventList";
-import { filterByDateAndYear } from "../../../state/event-state/selectors";
-
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { eventActions } from '../../../state/event-state/actions';
+import { useAppDispatch, useAppSelector } from '../../../state/store';
+import { getFilteredEvents } from '../../../state/event-state/selectors';
+import EventList from '../../../components/events/EventList';
 
 const FilterEventsList = () => {
-
   const router = useRouter();
-  const slug = router.query.slug;
-  let year;
-  let month;
-  if (slug?.length) {
-    year = +slug[0];
-    month = +slug[1];
-  }
-  if (!filterByDateAndYear({year, month}).length) {
-    return (
-      <div>
-        <h1>filter Event is empty</h1>
-      </div>
-    )
-  }
+  const dispatch = useAppDispatch();
+
+  const { slug } = router.query;
+  const [year, month] = slug?.length ? [+slug[0], +slug[1]] : [null, null];
+debugger
+  const filteredEvents = useAppSelector(getFilteredEvents({ year, month }));
+
+  useEffect(() => {
+    if (!filteredEvents?.length) {
+      dispatch(eventActions.fetchEvents());
+    }
+  }, [filteredEvents]);
+
   return (
     <div>
-      <h1 className="text-center text-lg pt-4">filter Events</h1>
-      <EventList items={filterByDateAndYear({year, month})}/>
+      <h1 className="text-center text-lg pt-4">Filter Events</h1>
+      {filteredEvents?.length ? (
+        <EventList items={filteredEvents} />
+      ) : (
+        <div>
+          <h2>No events found!</h2>
+        </div>
+      )}
     </div>
   );
 };

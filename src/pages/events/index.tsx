@@ -11,7 +11,7 @@ const ShowEvents = () => {
     const dispatch = useAppDispatch();
     const selectEvents = useAppSelector(eventSelectors.selectAllEvents);
     const isLoading = useAppSelector(eventSelectors.selectLoadingStatus);
-
+    
     useEffect(() => {
         if (!Object.keys(selectEvents).length) {
             dispatch(eventActions.fetchEvents())

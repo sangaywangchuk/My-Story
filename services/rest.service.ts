@@ -81,7 +81,10 @@ export const commonResponseHandler = async <R, K extends keyof R, E=never>(respo
     }
 };
 
-export const convertObjectToArray = <T>(data: T[]): T[] => {
+export const convertObjectToArray = <T>(data: any): T[] => {
   if (!data) return [];
-  return Object.values(data);
+  return Object.keys(data).reduce((acc: T[], key: string) => {
+    acc.push({...data[key], id: key}) ; 
+    return acc
+}, []) ;;
 } 

@@ -28,7 +28,7 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function HeaderNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -102,14 +102,11 @@ export default function Example() {
             </Transition>
           </Popover>
 
-          <Link href="/" className="text-sm font-semibold leading-6 text-gray-900">
+          <Link href="/story-blog" className="text-sm font-semibold leading-6 text-gray-900">
             Home
           </Link>
-          <Link href="/about" className="text-sm font-semibold leading-6 text-gray-900">
+          <Link href="/story-blog/about" className="text-sm font-semibold leading-6 text-gray-900">
             About Us
-          </Link>
-          <Link href="/contact" className="text-sm font-semibold leading-6 text-gray-900">
-            Contact Us
           </Link>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">

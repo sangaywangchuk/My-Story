@@ -24,7 +24,8 @@ export default function Home({story}: any) {
       </Head>
       <main className={styles.main}>
       {/* <Layout> */}
-      asdfasdfasdfasdf
+      <HeaderNav/>
+      <StoryblokComponent blok={story?.content} />
       <PromoSection></PromoSection>
       {/* <ProductSections></ProductSections>
       <FeatureSection></FeatureSection>

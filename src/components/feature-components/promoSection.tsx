@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Head from 'next/head'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -14,6 +15,10 @@ export default function Example() {
 
   return (
     <div className="bg-white">
+      <Head>
+        <title>Promo Section</title>
+        <meta name="description" content=" Data to enrich your online business" />
+      </Head>
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">

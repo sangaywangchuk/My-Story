@@ -3,7 +3,6 @@ import EventItem from "./EventItem";
 import classes from './EventList.module.css'
 const EventList = (props: {items: EventModel[]}) => {
     const {items} = props;
-debugger
     return (
         <ul className={classes.list}>
             {

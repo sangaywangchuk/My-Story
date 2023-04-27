@@ -5,7 +5,8 @@ import { useAppDispatch, useAppSelector } from "../../../state/store";
 import { EventModel } from "../../../models";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-const EventList = dynamic(() => import('../../../components/events/EventList'))
+import EventList from "../../../components/events/EventList";
+// const EventList = dynamic(() => import('../../../components/events/EventList'))
 const EventSearch = dynamic(() => import('../../../components/events/EventSearch'))
 
 const ShowEvents = (props: any) => {

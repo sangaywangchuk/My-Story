@@ -4,7 +4,7 @@ import { useAppDispatch } from "../../../state/store";
 import { EventModel } from "../../../models";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-const EventList = dynamic(() => import('../../../components/events/EventList'))
+import EventList from "../../../components/events/EventList";
 
 const FilterEventsList = (props: any) => {
   const dispatch = useAppDispatch();

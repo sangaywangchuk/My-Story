@@ -1,11 +1,12 @@
 import { storyblokEditable } from "@storyblok/react";
- 
-const Image = ({ blok }: any) =>{
+import Image from 'next/image';
+
+const Images = ({ blok }: any) =>{
  return (
     <div className={blok?.className} {...storyblokEditable(blok)}>
-      <img src={blok?.image.filename} className={blok?.className} alt="image" />
+      <Image src={blok?.image.filename} className={blok?.className} width={300} height={300} alt="image" />
     </div>
   );
    
 } 
-export default Image;
+export default Images;

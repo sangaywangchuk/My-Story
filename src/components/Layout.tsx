@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
@@ -25,6 +25,9 @@ function classNames(...classes: any) {
 }
 
 export function Layout({ children }: any) {
+  const [isActive, setActive] = useState({
+
+  });
   return (
     <>
       {/*
@@ -52,7 +55,13 @@ export function Layout({ children }: any) {
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
                         {navigation.map((item) => (
-                          <Link href={item.href} key={item.name}>
+                          <Link href={item.href} key={item.name} onClick={() =>{ 
+                            navigation.forEach((navItem) => {
+                              if (item !== navItem) 
+                                navItem.current = false
+                            })
+                            item.current = true
+                            }}>
                             <div 
                               className={classNames(
                                 item.current
@@ -100,15 +109,16 @@ export function Layout({ children }: any) {
                             {userNavigation.map((item) => (
                               <Menu.Item key={item.name}>
                                 {({ active }) => (
-                                  <a
-                                    href={item.href}
-                                    className={classNames(
-                                      active ? 'bg-gray-100' : '',
-                                      'block px-4 py-2 text-sm text-gray-700'
-                                    )}
-                                  >
-                                    {item.name}
-                                  </a>
+                                  <Link href={item.href}>
+                                    <div
+                                      className={classNames(
+                                        active ? 'bg-gray-100' : '',
+                                        'block px-4 py-2 text-sm text-gray-700'
+                                      )}
+                                    >
+                                      {item.name}
+                                    </div>
+                                  </Link>
                                 )}
                               </Menu.Item>
                             ))}

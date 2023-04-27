@@ -1,13 +1,12 @@
 import { useEffect } from "react";
-import EventList from "../../../components/events/EventList";
-import EventSearch from "../../../components/events/EventSearch";
-import { getAllEvents } from "../../../services/events-dummy-data";
 import { eventActions } from "../../../state/event-state/actions";
 import { eventSelectors } from "../../../state/event-state/selectors";
 import { useAppDispatch, useAppSelector } from "../../../state/store";
 import { EventModel } from "../../../models";
-import { getStoryblokApi } from "@storyblok/react";
 import Head from "next/head";
+import dynamic from "next/dynamic";
+const EventList = dynamic(() => import('../../../components/events/EventList'))
+const EventSearch = dynamic(() => import('../../../components/events/EventSearch'))
 
 const ShowEvents = (props: any) => {
     const dispatch = useAppDispatch();
@@ -23,12 +22,12 @@ const ShowEvents = (props: any) => {
     
 
     return (
-        <div>
+        <div className="bg-white p-10">
             <Head>
                 <title>Show Events</title>
                 <meta name="description" content="find all the events"></meta>
             </Head>
-            <h1 className="text-center">show all events</h1>
+            <h1 className="text-center font-bold text-2xl ">Show All Events</h1>
             <div>
                 <EventSearch/>
                 <EventList items={props?.events || selectEvents}/>

@@ -8,7 +8,8 @@ import ProductSections from '@/components/feature-components/productSection'
 import FeatureSection from '@/components/feature-components/featureSection'
 import ContactSection from '@/components/feature-components/contactSection'
 import PricingSection from '@/components/feature-components/pricingSection'
-import HeaderNav from '@/components/Navigation'
+import dynamic from 'next/dynamic'
+const HeaderNav = dynamic(() => import('@/components/Navigation'))
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,15 +24,8 @@ export default function Home({story}: any) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className={styles.main}>
-      {/* <Layout> */}
       <HeaderNav/>
       <StoryblokComponent blok={story?.content} />
-      <PromoSection></PromoSection>
-      {/* <ProductSections></ProductSections>
-      <FeatureSection></FeatureSection>
-      <ContactSection></ContactSection>
-      <PricingSection></PricingSection> */}
-      {/* </Layout> */}
       </main>
     </>
   )

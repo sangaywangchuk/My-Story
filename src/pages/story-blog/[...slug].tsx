@@ -5,8 +5,8 @@ import {
   getStoryblokApi,
   StoryblokComponent,
 } from "@storyblok/react";
-import Layout from "@/components/Layout";
-import HeaderNav from "@/components/Navigation";
+import dynamic from "next/dynamic";
+const HeaderNav = dynamic(() => import('@/components/Navigation'))
 
 export default function Page({ story }: any) {
   story = useStoryblokState(story);
@@ -17,10 +17,8 @@ export default function Page({ story }: any) {
         <title>{story ? story.name : "My Site"}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <Layout> */}
         <HeaderNav/>
         <StoryblokComponent blok={story.content} />
-      {/* </Layout> */}
     </div>
   );
 }

@@ -1,10 +1,10 @@
-import { useRouter } from "next/router";
-import { getEventById } from "../../../services/events-dummy-data";
-import EventSummary from "../../../components/event-details/EventSummary";
-import EventLogistics from "../../../components/event-details/EventLogistics";
-import EventContent from "../../../components/event-details/EventContent";
+
 import { EventModel } from "../../../models";
 import Head from "next/head";
+import dynamic from "next/dynamic";
+const EventSummary = dynamic(() => import('../../../components/event-details/EventSummary'))
+const EventLogistics = dynamic(() => import('../../../components/event-details/EventLogistics'))
+const EventContent = dynamic(() => import('../../../components/event-details/EventContent'))
 
 const EventDetail = (props: any) => {
     const event: EventModel | undefined = props?.event;
@@ -17,7 +17,7 @@ const EventDetail = (props: any) => {
         </div>
     }
     return ( event && 
-        <div>
+        <div className="">
              <Head>
                 <title>{event?.title}</title>
                 <meta name="description" content={event?.description}></meta>

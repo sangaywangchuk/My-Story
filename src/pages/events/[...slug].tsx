@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { eventActions } from "../../../state/event-state/actions";
 import { useAppDispatch } from "../../../state/store";
-import EventList from "../../../components/events/EventList";
 import { EventModel } from "../../../models";
 import Head from "next/head";
+import dynamic from "next/dynamic";
+const EventList = dynamic(() => import('../../../components/events/EventList'))
 
 const FilterEventsList = (props: any) => {
   const dispatch = useAppDispatch();
@@ -16,7 +17,7 @@ const FilterEventsList = (props: any) => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-white">
       <Head>
         <title>filter events</title>
         <meta name="description" content={"filter all the events"}></meta>

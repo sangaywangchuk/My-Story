@@ -2,12 +2,6 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { StoryblokComponent, getStoryblokApi, useStoryblokState } from '@storyblok/react'
-import Layout from '@/components/Layout'
-import PromoSection from '@/components/feature-components/promoSection'
-import ProductSections from '@/components/feature-components/productSection'
-import FeatureSection from '@/components/feature-components/featureSection'
-import ContactSection from '@/components/feature-components/contactSection'
-import PricingSection from '@/components/feature-components/pricingSection'
 import dynamic from 'next/dynamic'
 const HeaderNav = dynamic(() => import('@/components/Navigation'))
 

@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  functions = "out_functions/"
+  publish = "out_publish/"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  [plugins.inputs]
+    urls = [
+      "https://extraordinary-torte-fb6d14.netlify.app",
+    ]

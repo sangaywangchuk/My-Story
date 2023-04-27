@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "audit": "netlify build --dry --plugin @netlify/plugin-lighthouse"
+
   },
   "dependencies": {
     "@headlessui/react": "^1.7.13",
@@ -30,6 +32,7 @@
     "validator": "^13.9.0"
   },
   "devDependencies": {
+    "@netlify/plugin-lighthouse": "^4.1.1",
     "@types/validator": "^13.7.15",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",

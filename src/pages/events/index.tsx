@@ -6,13 +6,11 @@ import { EventModel } from "../../../models";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import EventList from "../../../components/events/EventList";
-// const EventList = dynamic(() => import('../../../components/events/EventList'))
 const EventSearch = dynamic(() => import('../../../components/events/EventSearch'))
 
 const ShowEvents = (props: any) => {
     const dispatch = useAppDispatch();
     const selectEvents = useAppSelector(eventSelectors.selectAllEvents);
-    const isLoading = useAppSelector(eventSelectors.selectLoadingStatus);
     
     useEffect(() => {
         if (!props?.events?.length) {
@@ -31,7 +29,7 @@ const ShowEvents = (props: any) => {
             <h1 className="text-center font-bold text-2xl ">Show All Events</h1>
             <div>
                 <EventSearch/>
-                <EventList items={props?.events || selectEvents}/>
+                <EventList items={props?.events?.length? props?.events : selectEvents}/>
             </div>
         </div>
     )

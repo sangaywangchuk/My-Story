@@ -8,7 +8,7 @@ const EventContent = dynamic(() => import('../../../components/event-details/Eve
 
 const EventDetail = (props: any) => {
     const event: EventModel | undefined = props?.event;
-    if (!props?.event) {
+    if (!event) {
         <div>
             <h1 className="text-center">
                 No Events found!!!
@@ -16,7 +16,7 @@ const EventDetail = (props: any) => {
             </h1>
         </div>
     }
-    return ( event && 
+    return (
         <div className="">
              <Head>
                 <title>{event?.title}</title>
@@ -40,7 +40,7 @@ export async function getStaticProps(context: any) {
       props: {
        event : data,
       },
-      revalidate: 30,
+      revalidate: 3000,
     };
   }
 

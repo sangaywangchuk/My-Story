@@ -3,7 +3,6 @@ import { eventActions } from "../../../state/event-state/actions";
 import { useAppDispatch } from "../../../state/store";
 import { EventModel } from "../../../models";
 import Head from "next/head";
-import dynamic from "next/dynamic";
 import EventList from "../../../components/events/EventList";
 
 const FilterEventsList = (props: any) => {
